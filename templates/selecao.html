@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>Shopee Hub Bel 01</title>
+</head>
+<body>
+
+    <header>
+        <div class="text">
+            <h1>Shopee</h1>
+        </div>
+        <div class="links">
+            <a href="/">Inicio</a>
+            <a href="/expedidas">Expedidas</a>
+            <a href="/aguardando">Aguardando</a>
+            <a href="/selecao">Seleção</a>
+        </div>
+    </header>
+
+    <div class="text" style="text-align: center; padding: 10px;">
+        <h3>Rotas Prontas: {{ count }}</h3>
+    </div>
+
+    <table>
+        <thead>
+            <th>Data</th>
+            <th>N° AT</th>
+            <th>Cidade</th>
+            <th>Distância</th>
+            <th>Gaiola</th>
+            <th>3PL</th>
+            <th>Motorista</th>
+            <th>Placa</th>
+            <th>Situação</th>
+            <th>Ações</th>
+        </thead>
+        <tbody>
+            {% for i in result %}
+            <tr>
+                <td>{{i.Data}}</td>
+                <td>{{i._id}}</td>
+                <td>{{i.City}}</td>
+                <td>{{i["Total Distance"]}}</td>
+                <td>{{i["Corridor/Cage"]}}</td>
+                <td>{{i["3pl"]}}</td>
+                <td>{{i.Motorista}}</td>
+                <td>{{i.Placa}}</td>
+                {% if i["Status"] != "NoShow" %}
+                <td>Normal</td>
+                {% else %}
+                <td style="color: red; font-size: medium;">Prioridade</td>
+                {% endif %}
+                <td>
+                    <form action="/atualizar-status/{{i['_id']}}" method="post">
+                        <!-- <button><a href="/dispatched/{{i['_id']}}">Dispatched</a></button> -->
+                        <!-- <button name="status" value="noshow">NoShow</button> -->
+                        <button><a href="/atualizar-dados/{{i._id}}">Atualizar Dados</a></button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
+    <title>Shopee Hub Bel 01</title>
+</head>
+<body>
+    
+    <div id="container">
+        <div class="card">
+            <h2 style="margin: 8px;">Informando Saída da AT</h2>
+            <form method="post">
+                <label>Hora Inicio</label>
+                <input type="time" name="horaInicio" required>
+                <label>Hora Final</label>
+                <input type="time" name="horaFim" required>
+                <label>Houve DoubleCheck ?</label>
+                <select name="doubleCheck" required>
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+        
+                <button type="submit">Atualizar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

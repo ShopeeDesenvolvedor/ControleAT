@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilização Header */
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #FFF;
+    background-color: black;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+header .links a {
+    text-decoration: none;
+    margin-left: 5px;
+    color: #FFF;
+    cursor: pointer;
+}
+/* Estilização Header */
+
+/* Estilização Tabela */
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+table th {
+    background-color: orange;
+    color: #FFF;
+    padding: 5px;
+}
+table td {
+    padding: 10px;
+}
+table tr:hover {
+    background-color: gray;
+    transform: .1s;
+}
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+table tr:nth-child(even):hover {
+    background-color: gray; /* Defina a cor desejada para quando o mouse passar por cima */
+}
+
+table button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+table a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    margin: 0px 5px;
+}
+/* Estilização Tabela */

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>Shopee Hub Bel 01</title>
+</head>
+<body>
+
+    <header>
+        <div class="text">
+            <h1>Shopee</h1>
+        </div>
+        <div class="links">
+            <a href="/">Inicio</a>
+            <a href="/expedidas">Expedidas</a>
+            <a href="/aguardando">Aguardando</a>
+            <a href="/selecao">Seleção</a>
+        </div>
+    </header>
+
+    <div class="text" style="text-align: center; padding: 10px;">
+        <h3>Rotas Expedidas: {{ count }}</h3>
+    </div>
+    
+    <table>
+        <thead>
+            <th>Data</th>
+            <th>N° AT</th>
+            <th>Cidade</th>
+            <th>Distância</th>
+            <th>Gaiola</th>
+            <th>Quantidade</th>
+            <th>3PL</th>
+            <th>Motorista</th>
+            <th>Placa</th>
+            <th>Hora Inicio</th>
+            <th>Hora Fim</th>
+            <th>Double Check</th>
+        </thead>
+        <tbody>
+            {% for i in result %}
+            <tr>
+                <td>{{i.Data}}</td>
+                <td>{{i._id}}</td>
+                <td>{{i.City}}</td>
+                <td>{{i["Total Distance"]}}</td>
+                <td>{{i["Corridor/Cage"]}}</td>
+                <td>{{i["count"]}}</td>
+                <td>{{i["3pl"]}}</td>
+                <td>{{i.Motorista}}</td>
+                <td>{{i.Placa}}</td>
+                <td>{{i["HoraInicio"]}}</td>
+                <td>{{i["HoraFim"]}}</td>
+                <td>{{i["DoubleCheck"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
