@@ -1,13 +1,16 @@
 from flask import Flask, render_template, request, redirect
 from datetime import datetime
 import pymongo
+import certifi
 
 app = Flask(__name__)
+
+ca = certifi.where()
 
 # Realizar a conexão com o banco de dados
 url = "mongodb+srv://josejunior1007:LBylhl9LMi22I3x4@shopee.cmy5b2f.mongodb.net/?retryWrites=true&w=majority"
 try:
-    client = pymongo.MongoClient(url)
+    client = pymongo.MongoClient(url, tlsCAFile=ca)
     db = client["Shopee"]
     col_expedicao = db["Expedicao"]
     print("DB connected ...")
